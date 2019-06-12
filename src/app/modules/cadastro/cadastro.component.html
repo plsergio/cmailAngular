@@ -5,6 +5,12 @@
       <div class="mdl-grid">
         <form [formGroup]="formCadastro" (ngSubmit)="handleCadastrarUsuario()">
 
+          <url *ngIf="mensagensErro" class="mdl-textfield is-invalid">
+            <li *ngFor="let erro of mensagensErro" class="mdl-textfield__error">
+              {{ erro.message}}: {{ erro.value}}
+            </li>
+          </url>
+
           <cmail-form-group [campo]="formCadastro.get('nome')">
             <input formControlName="nome" autofocus required type="text" name="nome" cmailFormField>
             <div *ngIf="formCadastro.get('nome').errors">

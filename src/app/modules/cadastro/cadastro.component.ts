@@ -8,15 +8,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class CadastroComponent implements OnInit {
 
-  textoDaLabel = '';
-  idCampo = '';
-  @Input() campo = new FormControl();
-
   formCadastro = new FormGroup({
     nome: new FormControl('', [Validators.required]),
     username: new FormControl('', [Validators.required]),
     senha: new FormControl('', [Validators.required]),
-    avatar: new FormControl(),    
+    avatar: new FormControl('', [Validators.required]),    
   })
 
   constructor() { }
@@ -36,7 +32,7 @@ export class CadastroComponent implements OnInit {
   validarTodosOsCamposDoFormulario(form: FormGroup){
     Object.keys(form.controls).forEach(field => {
       const control = form.get(field);
-      control.markAsTouched({ onlySelf: true});
+      control.markAsTouched();
     })
   }
 

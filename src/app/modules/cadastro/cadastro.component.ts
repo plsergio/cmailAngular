@@ -69,10 +69,11 @@ export class CadastroComponent implements OnInit {
   }
 
   validarTodosOsCamposDoFormulario(form: FormGroup) {
-    Object.keys(form.controls).forEach(field => {
-      const control = form.get(field);
-      control.markAsTouched();
-    })
+    form.markAllAsTouched();
+   // Object.keys(form.controls).forEach(field => {
+    //  const control = form.get(field);
+    //  control.markAsTouched();
+    //})
   }
 
 }

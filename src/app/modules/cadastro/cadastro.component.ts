@@ -11,7 +11,6 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit {
-  [x: string]: any;
 
   formCadastro = new FormGroup({
     nome: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -20,6 +19,7 @@ export class CadastroComponent implements OnInit {
     telefone: new FormControl('', [Validators.required, Validators.pattern('[0-9]{4}-?[0-9]{4}[0-9]?')]),
     avatar: new FormControl('', [Validators.required], this.validaImagem.bind(this)),
   })
+  mensagensErro: any;
 
   validaImagem(campoDoFormulario: FormControl) {
     return this.httpClient
@@ -60,8 +60,7 @@ export class CadastroComponent implements OnInit {
             }
             ,(responseError: HttpErrorResponse) => {
               //resposta caso existam erros!
-              this.mensagensErro = responseError.error.body
-              
+              this.mensagensErro = responseError.error.body              
             }
           )
     } else {

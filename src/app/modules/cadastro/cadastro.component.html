@@ -5,11 +5,11 @@
       <div class="mdl-grid">
         <form [formGroup]="formCadastro" (ngSubmit)="handleCadastrarUsuario()">
 
-          <url *ngIf="mensagensErro" class="mdl-textfield is-invalid">
+          <ul *ngIf="mensagensErro" class="mdl-textfield is-invalid">
             <li *ngFor="let erro of mensagensErro" class="mdl-textfield__error">
               {{ erro.message}}: {{ erro.value}}
             </li>
-          </url>
+          </ul>
 
           <cmail-form-group [campo]="formCadastro.get('nome')">
             <input formControlName="nome" autofocus required type="text" name="nome" cmailFormField>
@@ -49,18 +49,22 @@
 
           <cmail-form-group [campo]="formCadastro.get('avatar')">
             <input formControlName="avatar" type="text" name="avatar" cmailFormField>
-            <span class="mdl-textfield__error" *ngIf="formCadastro.get('avatar').hasError('required')">
-              Informar um avatar é obrigatório!
-            </span>
-            <span class="mdl-textfield__error" *ngIf="formCadastro.get('avatar').status === 'PENDING'">
-              Validação pendente...
-            </span>
-            <span class="mdl-textfield__error" *ngIf="formCadastro.get('avatar').status === 'VALID'">
-                Validação Válida
-            </span>
-            <span class="mdl-textfield__error" *ngIf="formCadastro.get('avatar').hasError('urlInvalida')">
-                Erro na Url informada
-            </span>
+            <div>
+              <span class="mdl-textfield__error" *ngIf="formCadastro.get('avatar').hasError('required')">
+                Informar um avatar é obrigatório!
+              </span>
+              <span class="mdl-textfield__error" *ngIf="formCadastro.get('avatar').hasError('urlInvalida')">
+                  Erro na Url informada
+              </span>
+            </div>
+            <div>
+              <span *ngIf="formCadastro.get('avatar').status === 'PENDING'">
+                Validação pendente...
+              </span>
+              <span *ngIf="formCadastro.get('avatar').status === 'VALID'">
+                  Validação Válida
+              </span>
+            </div>
           </cmail-form-group>
 
           <div class="mdl-card__actions">

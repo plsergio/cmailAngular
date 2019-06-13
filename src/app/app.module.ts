@@ -17,7 +17,7 @@ import { SharedComponentsModule } from './components/shared-components.module';
     AppComponent,
     FooterComponent,
     CaixaDeEntradaComponent,
-    LoginComponent,
+    //LoginComponent,
   ],
   imports: [
     BrowserModule,

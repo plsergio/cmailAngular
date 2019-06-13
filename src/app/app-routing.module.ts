@@ -6,7 +6,7 @@ import {NgModule } from '@angular/core';
 
 
 const rotas: Routes = [
-    {path: '', component: LoginComponent},
+    {path: '', loadChildren: 'src/app/modules/login/login.module#LoginModule'},
     {path: 'inbox', component: CaixaDeEntradaComponent},
     {path: 'cadastro', loadChildren: 'src/app/modules/cadastro/cadastro.module#CadastroModule'},
     {path: '**', redirectTo: 'inbox'}

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SharedComponentsModule } from 'src/app/components/shared-components.module';
 import { LoginRoutingModule } from './login-routing.modules';
 import { LoginComponent } from './login.component';
+import { CmailFormGroupModule } from '../cmail-form-group/cmail-form-group.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,9 @@ import { LoginComponent } from './login.component';
   ],
   imports: [
     CommonModule,
-    //SharedComponentsModule,
+    FormsModule,
+    CmailFormGroupModule,
+    SharedComponentsModule,
     LoginRoutingModule
   ],
   exports: [

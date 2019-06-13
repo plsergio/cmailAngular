@@ -5,6 +5,7 @@ import { LoginRoutingModule } from './login-routing.modules';
 import { LoginComponent } from './login.component';
 import { CmailFormGroupModule } from '../cmail-form-group/cmail-form-group.module';
 import { FormsModule } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,9 @@ import { FormsModule } from '@angular/forms';
     CmailFormGroupModule,
     SharedComponentsModule,
     LoginRoutingModule
+  ],
+  providers: [
+    LoginService
   ],
   exports: [
     LoginComponent

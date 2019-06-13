@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,27 +17,18 @@ export class LoginComponent implements OnInit {
   }
   mensagemErro: any;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private loginService: LoginService, private roteador: Router) { }
 
   ngOnInit() { }
 
   handleLogin(formLogin: NgForm){
     if (formLogin.valid){
-      this.httpClient
-          .post('http://localhost:3200/login', this.login)
+      this.loginService
+          . logar(this.login)
           .subscribe(
-            (response: any) => {
-              console.log(response);
-              localStorage.setItem('TOKEN', response.token);
-            },
-            (responseError: HttpErrorResponse) => {
-              // console.log(responseError);
-              this.mensagemErro = responseError.error.body
-            }
+            () => this.roteador.navigate(['/inbox'])
+            ,(responseError: HttpErrorResponse) => this.mensagemErro = responseError.error
           )
     }
   }
-
-
-
 }

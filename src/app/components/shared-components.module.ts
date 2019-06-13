@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { CommonModule } from '@angular/common';
-import { CmailFormGroupComponent } from './cmail-form-group/cmail-form-group.component';
-import { CmailFormFieldDirective } from './cmail-form-group/cmail-form-field.directive';
+import { CmailFormGroupComponent } from '../modules/cmail-form-group/cmail-form-group.component';
+import { CmailFormFieldDirective } from '../modules/cmail-form-group/cmail-form-field.directive';
 
 @NgModule({
-  declarations: [ // declara cmponentes e outros
+  declarations: [ // declara componentes e outros
     HeaderComponent,
-    CmailFormGroupComponent,
-    CmailFormFieldDirective,
   ],
   imports: [ // importa módulos
     CommonModule
   ],
-  exports: [ //exporta compoenentes e outros
+  exports: [ //exporta componentes e outros
     HeaderComponent,
-    CmailFormGroupComponent,
-    CmailFormFieldDirective,
   ]
 })
 export class SharedComponentsModule { }

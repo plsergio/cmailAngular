@@ -10,8 +10,11 @@ import { CaixaDeEntradaComponent } from './modules/caixa-de-entrada/caixa-de-ent
 import { LoginComponent } from './modules/login/login.component';
 import { ModuloRoteamento } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
-import { CadastroModule } from './modules/cadastro/cadastro.module';
+
 import { SharedComponentsModule } from './components/shared-components.module';
+import { CadastroModule } from './modules/cadastro/cadastro.module';
+import { CmailFormGroupModule } from './modules/cmail-form-group/cmail-form-group.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +27,8 @@ import { SharedComponentsModule } from './components/shared-components.module';
     FormsModule,
     ModuloRoteamento,
     HttpClientModule,
-    CadastroModule,
     SharedComponentsModule,
+    CadastroModule
   ],
   providers: [],
   bootstrap: [AppComponent]

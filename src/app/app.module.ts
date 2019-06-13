@@ -11,22 +11,21 @@ import { LoginComponent } from './modules/login/login.component';
 import { ModuloRoteamento } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastroModule } from './modules/cadastro/cadastro.module';
-import { SharedComponentsModule } from './components/shared-components/shared-components.module';
+import { SharedComponentsModule } from './components/shared-components.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
     CaixaDeEntradaComponent,
     LoginComponent,
-    SharedComponentsModule,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ModuloRoteamento,
     HttpClientModule,
-    CadastroModule
+    CadastroModule,
+    SharedComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EmailService } from 'src/app/services/email.service';
+import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'cmail-caixa-de-entrada',
   templateUrl: './caixa-de-entrada.component.html',
-  styles: []
+  styles: [`
+    ul, li {
+      margin: 0;
+      padding: 0;
+      list-style-type: NONE_TYPE;
+    }
+    `]
 })
 export class CaixaDeEntradaComponent {
 

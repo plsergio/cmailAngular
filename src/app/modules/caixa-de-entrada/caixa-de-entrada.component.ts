@@ -62,7 +62,23 @@ export class CaixaDeEntradaComponent implements OnInit {
           }
           ,erro => console.error(erro)
         )
+  }
 
+  handleRemoveEmail(eventoVaiRemover, emailId){
+    console.log(eventoVaiRemover);
+    if (eventoVaiRemover.status === 'removing'){
+      this.emailService
+          .deletar(emailId)
+          .subscribe(
+            res => {
+              console.log(res);
+
+              //remove o email da lista de emails depois dela ser apagada da api
+              this.emailList = this.emailList.filter(email => email.id != emailId);
+            },
+            err => console.error(err)
+          )
+    }
   }
 
 }

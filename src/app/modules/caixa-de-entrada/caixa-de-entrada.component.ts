@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EmailService } from 'src/app/services/email.service';
 import { PageDataService } from 'src/app/services/page.service';
+import { HeaderService } from 'src/app/services/header.service';
 
 @Component({
   selector: 'cmail-caixa-de-entrada',
@@ -26,9 +27,11 @@ export class CaixaDeEntradaComponent implements OnInit {
   emailList = [];
 
   email = {destinatario: '', assunto: '',  conteudo: ''}
+  termoParaFiltro: string = '';
 
-  constructor(private emailService: EmailService,
-              private pageDataService: PageDataService){} //injetar emailservice
+  constructor(private emailService: EmailService
+             ,private pageDataService: PageDataService
+             ,private headerService: HeaderService){} //injetar emailservice
 
   ngOnInit() {
     this.emailService
@@ -41,6 +44,9 @@ export class CaixaDeEntradaComponent implements OnInit {
     this.pageDataService
         .defineTitulo('Caixa de entrada - CMail');
 
+    this.headerService
+          .valorDoFiltro
+          .subscribe(novoValor => this.termoParaFiltro = novoValor)
   }
 
 

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { PageDataService } from 'src/app/services/page.service';
+import { HeaderService } from 'src/app/services/header.service';
 
 @Component ({
     selector: 'cmail-header',
@@ -8,11 +9,12 @@ import { PageDataService } from 'src/app/services/page.service';
 })
 export class HeaderComponent{
 
-    //restante do código omitido
     tituloDaPagina = 'CMail'; //Nova propriedade
 
-    //Injeção de PageDataService
-    constructor(private pageService: PageDataService){
+    
+    constructor(private pageService: PageDataService //Injeção de PageDataService
+                 ,private headerService: HeaderService){
+
         //assinando titulo de pageDataService
         this.pageService
             .titulo
@@ -27,5 +29,9 @@ export class HeaderComponent{
 
     toggleMenu(){
         this._isMenuOpen = !this._isMenuOpen
+    }
+
+    handleBuscaChanges({ target }){
+        this.headerService.atualizarTermoDeFiltro(target.value)
     }
 }

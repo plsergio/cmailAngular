@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedComponentsModule } from './components/shared-components.module';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/pt';
+import { FiltroPorAssunto } from './modules/caixa-de-entrada/filtro-por-assunto.pipe';
 
 registerLocaleData(localeFr, 'pt');
 
@@ -21,7 +22,7 @@ registerLocaleData(localeFr, 'pt');
     AppComponent,
     FooterComponent,
     CaixaDeEntradaComponent,
-    //LoginComponent,
+    FiltroPorAssunto
   ],
   imports: [
     BrowserModule,

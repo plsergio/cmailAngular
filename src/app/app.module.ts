@@ -11,6 +11,10 @@ import { ModuloRoteamento } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SharedComponentsModule } from './components/shared-components.module';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/pt';
+
+registerLocaleData(localeFr, 'pt');
 
 @NgModule({
   declarations: [

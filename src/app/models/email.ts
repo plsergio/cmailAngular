@@ -1,7 +1,7 @@
 export class Email{
-    destinatario='';
-    assunto='';
-    conteudo='';
+    destinatario = '';
+    assunto = '';
+    conteudo = '';
 
     constructor(
         { destinatario, assunto, conteudo}:

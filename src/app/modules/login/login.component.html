@@ -25,7 +25,7 @@
 
         <section *ngIf="mensagemErro" class="mdl-textfield is-invalid">
             <p class="mdl-textfield__error">
-                {{ mensagemErro.message }}
+                {{ mensagemErro.errors.body.message }}
             </p>
         </section>
 

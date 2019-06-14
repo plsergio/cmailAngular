@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Email } from '../models/email';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmailService {
 
-  api = 'http://localhost:3200/emails';
+  api = environment.baseUrls + '/emails';
   cabecalho = new HttpHeaders({ 'Authorization': localStorage.getItem('TOKEN')});
   
   constructor(private http: HttpClient) { }
@@ -29,7 +30,7 @@ export class EmailService {
                         destinatario: emailApi.to,
                         assunto: emailApi.subject,
                         conteudo: emailApi.content
-                      })
+                      });
                     }
                   )
                 )

@@ -6,11 +6,11 @@
       <div class="mdl-grid">
         <ul>
           <li *ngFor="let email of emailList">
-            <cmail-list-item>
+            <cmail-list-item
               [destinatario]="email.destinatario"
               [assunto]="email.assunto"
               [introducaoDoConteudo]="email.introducaoDoConteudo"
-              [dataDeEnvio]="email.dataDeEnvio"
+              [dataDeEnvio]="email.dataDeEnvio">
             </cmail-list-item>
           </li>
         </ul>

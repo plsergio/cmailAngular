@@ -92,4 +92,13 @@ export class CaixaDeEntradaComponent implements OnInit {
     }
   }
 
+  filtrarEmailsPorAssunto(){
+    const termoParaFiltroEmMinusculo = this.termoParaFiltro.toLowerCase();
+
+    return this.emailList.filter( email => {
+      const assunto = email.assunto.toLowerCase()
+      return assunto.includes(termoParaFiltroEmMinusculo)
+    })
+  }
+
 }
